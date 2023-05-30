@@ -16,15 +16,20 @@
 
 <body>
     <div class="container">
+        <div class="row mt-5">
+            <div class="col-12">
+                <h1>Registro</h1>
+            </div>
+        </div>
         <form>
-            <div class="row g-3 d-flex">
+            <div class="row g-3 d-flex mt-3">
                 <div class="col-md-6">
                     <label for="input-name" class="form-label">Nombre(s)</label>
-                    <input type="text" class="form-control" aria-label="First name">
+                    <input type="text" class="form-control" id="input-name" aria-label="First name">
                 </div>
                 <div class="col-md-6">
                     <label for="input-name" class="form-label">Apellidos</label>
-                    <input type="text" class="form-control" aria-label="Last name">
+                    <input type="text" class="form-control" id="input-name" aria-label="Last name">
                 </div>
 
                 <div class="col-md-6">
@@ -44,11 +49,11 @@
                     <input type="text" class="form-control" id="inputZip">
                 </div>
             </div>
-            <div class="d-flex justify-content-between">
-                <button class="btn btn-primary">Registrarse</button>
-                <button class="btn btn-secondary">Iniciar sesion</button>
-            </div>
         </form>
+        <div class="d-flex justify-content-between mt-4">
+            <button class="btn btn-primary">Registrarse</button>
+            <button class="btn btn-secondary">Iniciar sesion</button>
+        </div>
     </div>
 </body>
 
