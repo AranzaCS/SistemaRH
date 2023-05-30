@@ -14,6 +14,7 @@ function init() {
 
 function signin() {
     var name = document.getElementById('input-name').value;
+    var surname = document.getElementById('input-name').value;
     var mail = document.getElementById('input-mail').value;
     var pass = document.getElementById('input-password').value;
     var address = document.getElementById('inputAddress').value;
@@ -24,6 +25,7 @@ function signin() {
         url: 'http://localhost:3000/user/signin',
         data: {
             user_name: name,
+            user_surnames: surname,
             user_mail: mail,
             user_password: pass,
             user_address: address,

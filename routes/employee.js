@@ -3,10 +3,10 @@ const employee = express.Router();
 const db = require('../config/database');
 
 employee.post('/', async (req, res, next) => {
-    const { emp_id, emp_name, emp_surnames, emp_phone, emp_email, emp_address } = req.body;
-    if (emp_id && emp_name && emp_surnames && emp_phone && emp_email && emp_address) {
-        let query = "INSERT INTO employees(emp_id, emp_name, emp_surnames, emp_phone, emp_email, emp_address)";
-        query += `VALUES ('${emp_id}', ${emp_name}, ${emp_surnames}, ${emp_phone}, '${emp_email}', '${emp_address}')`;
+    const { emp_name, emp_surnames, emp_phone, emp_email, emp_address } = req.body;
+    if ( emp_name && emp_surnames && emp_phone && emp_email && emp_address) {
+        let query = "INSERT INTO employees(emp_name, emp_surnames, emp_phone, emp_email, emp_address)";
+        query += `VALUES ('${emp_name}', '${emp_surnames}', ${emp_phone}, '${emp_email}', '${emp_address}')`;
         const rows = await db.query(query);
 
         (rows.affectedRows == 1) ?
@@ -61,8 +61,11 @@ employee.get('/:id([0-9]{1,3})', async (req, res, next) => {
     const id = req.params.id;
     if (id >= 1 && id <= 50) {
         const rts = await db.query("SELECT * FROM employees WHERE emp_id=" + id + ";");
+        (rts.length > 0) ?
+        res.status(200).json({ code: 200, message: rts }) :
+        res.status(404).json({ code: 404, message: 'Empleado no encontrado' });
     }
-    return res.status(404).json({ code: 404, message: 'Empleado no encontrado' });
+    
 });
 
 employee.get('/:name([A-Za-z]+)', async (req, res, next) => {

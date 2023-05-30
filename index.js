@@ -6,9 +6,9 @@ const app = express();
 const employee = require('./routes/employee');
 const user = require('./routes/user');
 //Middleware
-const index = require('./middleware/index');
 const auth = require('./middleware/auth');
 const notFound = require('./middleware/notFound');
+const index = require('./middleware/index');
 const cors = require('./middleware/cors');
 
 app.use(cors);
