@@ -3,30 +3,29 @@ var headers = {};
 var url = "http://localhost:3000";
 
 function init() {
-    if(localStorage.getItem("token")) {
+    if (localStorage.getItem("token")) {
         headers = {
             headers: {
                 'Authorization': "bearer " + localStorage.getItem("token")
             }
         }
-        loadEmployee();
+        navBar();
     } else {
         window.location.href = "index.html";
     }
 }
 
-function loadEmployee() {
-    axios.get(url + "/employee", headers).then(function(res) {
-        console.log(res);
-        displayEmployee(res.data.message);
-    }).catch(function(err) {
-        console.log(err);
+function navBar() {
+    document.querySelector('.btn-outline-success').addEventListener('click', function () {
+        window.location.href = "signin.html"
     });
-}
-
-function displayEmployee(employee) {
-    var body = document.querySelector("body");
-    for(var i = 0; i < employee.length; i++) {
-        body.innerHTML += `<h3>${employee[i].emp_name}</h3>`;
-    }
+    document.querySelector('.btn-outline-primary').addEventListener('click', function () {
+        window.location.href = "search.html"
+    });
+    document.querySelector('.btn-outline-info').addEventListener('click', function () {
+        window.location.href = "edit.html"
+    });
+    document.querySelector('.btn-outline-danger').addEventListener('click', function () {
+        window.location.href = "delete.html"
+    });
 }

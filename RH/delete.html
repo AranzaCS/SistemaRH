@@ -11,7 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="./js/signin.js"></script>
+    <script src="./js/delete.js"></script>
 </head>
 
 <body>
@@ -30,7 +30,7 @@
     <div class="container">
         <div class="row mt-5">
             <div class="col-12">
-                <h1>Agregar empleado</h1>
+                <h1>Eliminar empleado</h1>
             </div>
         </div>
 
@@ -40,28 +40,15 @@
                     <label for="input-name" class="form-label">Nombre(s)</label>
                     <input type="text" class="form-control" id="input-name" aria-label="First name">
                 </div>
-                <div class="col-md-6">
-                    <label for="input-name" class="form-label">Apellidos</label>
-                    <input type="text" class="form-control" id="input-name" aria-label="Last name">
-                </div>
-
-                <div class="col-md-6">
-                    <label for="input-mail" class="form-label">Correo</label>
-                    <input type="email" class="form-control" id="input-mail" placeholder="name@example.com">
-                </div>
-                <div class="col-9">
-                    <label for="inputAddress" class="form-label">Direccion</label>
-                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-                </div>
                 <div class="col-md-3">
-                    <label for="inputZip" class="form-label">Telefono</label>
-                    <input type="text" class="form-control" id="inputZip">
+                    <label for="input-id" class="form-label">Id</label>
+                    <input type="number" class="form-control" id="input-id">
                 </div>
             </div>
         </form>
         
         <div class="d-flex justify-content-between mt-4">
-            <button class="btn btn-primary">Agregar</button>
+            <button class="btn btn-primary">Eliminar</button>
             <button class="btn btn-secondary">Cancelar</button>
         </div>
     </div>

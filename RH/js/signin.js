@@ -1,14 +1,13 @@
 window.onload = init;
 
 function init() {
-    if (!localStorage.getItem("token")) {
+    if (localStorage.getItem("token")) {
         document.querySelector('.btn-secondary').addEventListener('click', function () {
-            window.location.href = "login.html"
+            window.location.href = "RH.html"
         });
-
         document.querySelector('.btn-primary').addEventListener('click', signin);
     } else {
-        window.location.href = "RH.html";
+        window.location.href = "index.html";
     }
 }
 
@@ -16,25 +15,23 @@ function signin() {
     var name = document.getElementById('input-name').value;
     var surname = document.getElementById('input-name').value;
     var mail = document.getElementById('input-mail').value;
-    var pass = document.getElementById('input-password').value;
     var address = document.getElementById('inputAddress').value;
     var phone = document.getElementById('inputZip').value;
 
     axios({
         method: 'post',
-        url: 'http://localhost:3000/user/signin',
+        url: 'http://localhost:3000/employees',
         data: {
-            user_name: name,
-            user_surnames: surname,
-            user_mail: mail,
-            user_password: pass,
-            user_address: address,
-            user_phone: phone
+            emp_name: name,
+            emp_surnames: surname,
+            emp_mail: mail,
+            emp_address: address,
+            emp_phone: phone
         }
     }).then(function (res) {
         console.log(res);
         alert("Registro exitoso");
-        window.location.href = "login.html";
+        window.location.href = "RH.html";
     }).catch(function (err) {
         console.log(err);
     });
