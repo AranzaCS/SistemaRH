@@ -4,9 +4,9 @@ const db = require('../config/database');
 
 employee.post('/', async (req, res, next) => {
     const { emp_name, emp_surnames, emp_phone, emp_email, emp_address } = req.body;
-    if ( emp_name && emp_surnames && emp_phone && emp_email && emp_address) {
+    if (req.body) {
         let query = "INSERT INTO employees(emp_name, emp_surnames, emp_phone, emp_email, emp_address)";
-        query += `VALUES ('${emp_name}', '${emp_surnames}', ${emp_phone}, '${emp_email}', '${emp_address}')`;
+        query += `VALUES ('${emp_name}', '${emp_surnames}', '${emp_phone}', '${emp_email}', '${emp_address}')`;
         const rows = await db.query(query);
 
         (rows.affectedRows == 1) ?
@@ -42,7 +42,7 @@ employee.put('/:id([0-9]{1,3})', async (req, res, next) => {
 
 employee.patch('/:id([0-9]{1,3})', async (req, res, next) => {
     if (req.body.emp_name) {
-        let query = `UPDATE employees SET emp_name='${req.body.emp_name}' WHERE emp_id=${req.params.id}`;
+        let query = `UPDATE employees SET emp_id='${req.body.emp_id}',emp_name='${req.body.emp_name}',emp_surnames='${req.body.emp_surnames}',emp_phone='${req.body.emp_phone}',emp_email='${req.body.emp_email}',emp_address='${req.body.emp_address}' WHERE emp_id=${req.params.id}`;
         const rows = await db.query(query);
 
         (rows.affectedRows == 1) ?

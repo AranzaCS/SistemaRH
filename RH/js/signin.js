@@ -13,20 +13,23 @@ function init() {
 
 function signin() {
     var name = document.getElementById('input-name').value;
-    var surname = document.getElementById('input-name').value;
+    var surname = document.getElementById('input-surname').value;
     var mail = document.getElementById('input-mail').value;
     var address = document.getElementById('inputAddress').value;
     var phone = document.getElementById('inputZip').value;
 
     axios({
         method: 'post',
-        url: 'http://localhost:3000/employees',
+        url: 'http://localhost:3000/employee',
         data: {
             emp_name: name,
             emp_surnames: surname,
-            emp_mail: mail,
+            emp_email: mail,
             emp_address: address,
             emp_phone: phone
+        },
+        headers: {
+            'Authorization': "bearer " + localStorage.getItem("token")
         }
     }).then(function (res) {
         console.log(res);
