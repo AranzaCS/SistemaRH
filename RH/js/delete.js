@@ -5,7 +5,7 @@ function init() {
         document.querySelector('.btn-secondary').addEventListener('click', function () {
             window.location.href = "RH.html"
         });
-        document.querySelector('.btn-primary').addEventListener('click', deleteEmployee());
+        document.querySelector('.btn-primary').addEventListener('click', deleteEmployee);
     } else {
         window.location.href = "RH.html";
     }
