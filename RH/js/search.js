@@ -6,8 +6,8 @@ function init() {
         document.querySelector('.btn-secondary').addEventListener('click', function () {
             window.location.href = "RH.html"
         });
-        document.querySelector('.btn-outline-dark').addEventListener('click', loadEmployee);
-        document.querySelector('.btn-primary').addEventListener('click', loadEmployeeX);
+        /*document.querySelector('.btn-outline-dark').addEventListener('click', loadEmployee);
+        document.querySelector('.btn-primary').addEventListener('click', loadEmployeeX);*/
     } else {
         window.location.href = "index.html";
     }
@@ -57,6 +57,7 @@ function displayEmployee(employee) {
         window.location.reload("search.html");
         aux = 1;
     }
+    
     if (aux == 1) {
         for (var i = 0; i < employee.length; i++) {
             body.innerHTML += `<h6 class="col-12 mt-3">${employee[i].emp_id} ${employee[i].emp_name} ${employee[i].emp_surnames} ${employee[i].emp_phone} ${employee[i].emp_email} ${employee[i].emp_address}</h6>`;
@@ -64,3 +65,5 @@ function displayEmployee(employee) {
         aux = 0;
     }
 }
+
+//displayEmployeeX() {}
