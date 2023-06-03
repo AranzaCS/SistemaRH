@@ -16,9 +16,9 @@
 
 <body>
 
-    <h1>Recursos Humanos - Taller de Node.js S.A. de C.V.</h1>
+    <h1 class="text-lg-left col-12 mt-3">Recursos Humanos - Taller de Node.js S.A. de C.V.</h1>
 
-    <nav class="navbar bg-body-tertiary">
+    <nav class="navbar bg-body-tertiary mt-3">
         <form class="container-fluid justify-content-start">
             <button class="btn btn-outline-success me-2" type="button">Agregar empleado</button>
             <button class="btn btn-outline-primary me-2" type="button">Buscar empleado</button>
@@ -30,14 +30,14 @@
     <div class="container">
         <div class="row mt-5">
             <div class="col-12">
-                <h1>Buscar empleado</h1>
+                <h2>Buscar empleado</h2>
             </div>
         </div>
 
         <form>
             <div class="row g-3 d-flex mt-3">
                 <div class="col-md-12">
-                    <label for="input-name" class="form-label">Nombre(s)</label>
+                    <label for="input-name" class="form-label">Nombre / Id</label>
                     <input type="text" class="form-control" id="input-name" aria-label="First name">
                 </div>
             </div>
@@ -48,6 +48,23 @@
             <button class="btn btn-outline-dark" onclick="loadEmployee()">Mostrar TODOS</button>
             <buttton class="btn btn-secondary">Cancelar</buttton>
         </div>
+    </div>
+
+    <div class="col-12">
+        <table class="table table-striped mt-4">
+            <tr class="table-info">
+                <th class="rounded-left">Id</th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Telefono</th>
+                <th>Correo</th>
+                <th class="rounded-right">Direccion</th>
+            </tr>
+    
+            <tbody id="empTable">
+    
+            </tbody>
+        </table>
     </div>
 
 </body>
