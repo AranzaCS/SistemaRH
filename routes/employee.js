@@ -49,23 +49,23 @@ employee.patch('/:id([0-9]{1,3})', async (req, res, next) => {
             res.status(200).json({ code: 200, message: "Empleado actualizado correctamente" }) :
             res.status(500).json({ code: 500, message: "Ocurrio un error" });
     }
-    return res.status(500).json({ code: 500, message: "Campos incompletos"});
+    return res.status(500).json({ code: 500, message: "Campos incompletos" });
 });
 
-employee.get('/', async (req,res,next) => {
+employee.get('/', async (req, res, next) => {
     const rts = await db.query('SELECT * FROM employees');
     return res.status(200).json({ code: 200, message: rts });
 });
 
 employee.get('/:id([0-9]{1,3})', async (req, res, next) => {
     const id = req.params.id;
-    if (id >= 1 && id <= 50) {
+    //if (id > 0) {
         const rts = await db.query("SELECT * FROM employees WHERE emp_id=" + id + ";");
         (rts.length > 0) ?
-        res.status(200).json({ code: 200, message: rts }) :
-        res.status(404).json({ code: 404, message: 'Empleado no encontrado' });
-    }
-    
+            res.status(200).json({ code: 200, message: rts }) :
+            res.status(404).json({ code: 404, message: 'Empleado no encontrado' });
+    //}
+
 });
 
 employee.get('/:name([A-Za-z]+)', async (req, res, next) => {
