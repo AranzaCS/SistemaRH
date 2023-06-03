@@ -1,4 +1,5 @@
 window.onload = init;
+var aux = 1;
 
 function init() {
     if (localStorage.getItem("token")) {
@@ -28,7 +29,7 @@ function loadEmployee() {
 }
 
 function loadEmployeeX() {
-    var name = document.getElementById('input-name').value;
+    let name = document.getElementById('input-name').value;
 
     axios({
         method: 'get',
@@ -50,17 +51,16 @@ function loadEmployeeX() {
 }
 
 function displayEmployee(employee) {
-    //HTMLBodyElement.reset;
-    var body = document.querySelector("body");
-    var aux = 0;
+    let body = document.querySelector("body");
 
     if (aux == 0) {
         window.location.reload("search.html");
-    }
-    for (var i = 0; i < employee.length; i++) {
         aux = 1;
-        if (aux == 1) {
-            body.innerHTML += `<h6 class="mt-3">${employee[i].emp_id} ${employee[i].emp_name} ${employee[i].emp_surnames} ${employee[i].emp_phone} ${employee[i].emp_email} ${employee[i].emp_address}</h6>`;
+    }
+    if (aux == 1) {
+        for (var i = 0; i < employee.length; i++) {
+            body.innerHTML += `<h6 class="col-12 mt-3">${employee[i].emp_id} ${employee[i].emp_name} ${employee[i].emp_surnames} ${employee[i].emp_phone} ${employee[i].emp_email} ${employee[i].emp_address}</h6>`;
         }
+        aux = 0;
     }
 }
